@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import {useEffect, useContext} from 'react';
+import TodoCreate from './components/TodoCreate';
+import TodoList from './components/TodoList';
+import TodosContext from './context/todos';
 
-function App() {
+function App() {  
+  const {fetchTodos} = useContext(TodosContext);
+
+  useEffect(() => {
+    fetchTodos()
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <div>
+        <TodoCreate/>
+        <br></br>
+        <TodoList />
+      </div>    
+    );
 }
 
 export default App;
