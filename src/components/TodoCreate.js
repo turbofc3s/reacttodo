@@ -18,8 +18,7 @@ function TodoCreate() {
 	return (
 		<div>
 		  <form onSubmit={handleSubmit} >
-		    <label>Todo</label>
-		    <input value={action} onChange={handleChange} />
+		    <input placeHolder="Enter todo here" value={action} onChange={handleChange} />
 		    <button>Create Todo!</button>
 		  </form>
 		</div>

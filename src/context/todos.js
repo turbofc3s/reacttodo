@@ -57,11 +57,12 @@ const createTodo = async (event) => {
     	editTodos,
     	deleteTodos,
     	todos
-
     }
 
+console.log(valueToShare)
+
   return (
-    <TodosContext.Provider value={{valueToShare}}>
+    <TodosContext.Provider value={valueToShare}>
       { children}
     </TodosContext.Provider>
   )    

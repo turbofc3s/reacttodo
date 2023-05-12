@@ -1,24 +1,16 @@
 {
   "todos": [
     {
-      "event": "eat",
-      "id": 3
-    },
-    {
-      "event": "play",
-      "id": 4
-    },
-    {
-      "event": "go",
-      "id": 5
-    },
-    {
-      "event": "go",
-      "id": 6
-    },
-    {
       "event": "dark web",
       "id": 7
+    },
+    {
+      "event": "have fun",
+      "id": 8
+    },
+    {
+      "event": "sleep",
+      "id": 9
     }
   ]
 }
