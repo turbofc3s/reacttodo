@@ -11,7 +11,7 @@ function TodoList() {
 		);  
 	}) ;
 
-	return <div>{renderedTodos}</div>;
+	return <div >{renderedTodos}</div>;
 }
 
 export default TodoList;

@@ -25,7 +25,7 @@ function TodoShow({todo}) {
 	}
 
 	return (
-	  <div>
+	  <div className="list">
 	    <div>{content}</div>
 	    <button onClick={handleEdit}>Edit</button>
 	    <button onClick={handleDelete}> Delete</button>
