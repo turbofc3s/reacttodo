@@ -1,16 +1,8 @@
 {
   "todos": [
     {
-      "event": "have fun",
-      "id": 8
-    },
-    {
-      "event": "sleep",
-      "id": 9
-    },
-    {
-      "event": "master blaster",
-      "id": 10
+      "event": "rx7",
+      "id": 1
     }
   ]
 }
