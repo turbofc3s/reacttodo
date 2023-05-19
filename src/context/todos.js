@@ -4,6 +4,7 @@ import axios from 'axios';
 
 const TodosContext = createContext();
 
+
 function Provider({children}) {
 
 const [todos, setTodos] = useState([]);
@@ -16,9 +17,10 @@ const [todos, setTodos] = useState([]);
 
 
 const createTodo = async (event, email) => {
+
     const response = await axios.post('http://localhost:3001/todos', {
         event,
-        email
+        email: "burkejeffrey81@gmail.com"
     });
       const updatedTodos = [
       ...todos, 

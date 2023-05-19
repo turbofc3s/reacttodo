@@ -31,7 +31,7 @@ function Login() {
       {theme: 'outline', size: 'large'}
     );
   }, []);
-
+ 
   //if we have no user: show sign in button
   // if we have a user: show the log out button 
   console.log(user)
