@@ -3,11 +3,12 @@ import jwt_decode from 'jwt-decode';
 
 function Login() {
   const [user, setUser] = useState({})
+  // console.log(user.email)
 
   function handleCallbackResponse(response) {
     console.log('Encoded JWT ID token: ' + response.credential);
     var userObject = jwt_decode(response.credential);
-    console.log(userObject);
+    // console.log(userObject);
     setUser(userObject);
     document.getElementById('signInDiv').hidden = true;
   }
@@ -18,6 +19,7 @@ function Login() {
   }
 
   useEffect(() => {
+    if(!google) return
     /* global google */
     google.accounts.id.initialize({
       client_id: "89157473197-l17rek976eg035cem0eq66ko71662bp0.apps.googleusercontent.com",
@@ -32,6 +34,7 @@ function Login() {
 
   //if we have no user: show sign in button
   // if we have a user: show the log out button 
+  console.log(user)
 
   return (
     <div className="App">

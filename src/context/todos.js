@@ -15,9 +15,10 @@ const [todos, setTodos] = useState([]);
   };	
 
 
-const createTodo = async (event) => {
+const createTodo = async (event, email) => {
     const response = await axios.post('http://localhost:3001/todos', {
         event,
+        email
     });
       const updatedTodos = [
       ...todos, 

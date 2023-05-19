@@ -1,8 +1,20 @@
 {
   "todos": [
     {
-      "event": "rx7",
+      "event": "help",
       "id": 1
+    },
+    {
+      "event": "go",
+      "id": 2
+    },
+    {
+      "event": "play",
+      "id": 3
+    },
+    {
+      "event": "ere",
+      "id": 4
     }
   ]
 }
