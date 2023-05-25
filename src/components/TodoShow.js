@@ -18,7 +18,7 @@ function TodoShow({todo}) {
 		setShowEdit(false);
 	}
 
-	let content = <h3>{todo.event}</h3>
+	let content = <h3>{todo.event} {todo.email} </h3>
 
 	if(showEdit) {
 		content = <TodoEdit todo={todo} onSubmit={handleSubmit}/>

@@ -1,22 +1,11 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useContext} from 'react';
 import jwt_decode from 'jwt-decode';
+import UserContext from ' ../context/User-context';
 
 function Login() {
-  const [user, setUser] = useState({})
-  // console.log(user.email)
-
-  function handleCallbackResponse(response) {
-    console.log('Encoded JWT ID token: ' + response.credential);
-    var userObject = jwt_decode(response.credential);
-    // console.log(userObject);
-    setUser(userObject);
-    document.getElementById('signInDiv').hidden = true;
-  }
-
-  function handleSignOut(event) {
-    setUser({});
-    document.getElementById('signInDiv').hidden = false;
-  }
+  const {handleCallbackResponse} = useContext(UserContext);
+ 
+  const {handleSignOut} = useContext(UserContext);
 
   useEffect(() => {
     if(!google) return
@@ -34,9 +23,9 @@ function Login() {
  
   //if we have no user: show sign in button
   // if we have a user: show the log out button 
-  console.log(user)
+ 
 
-  return (
+  return (  
     <div className="App">
       <div id="signInDiv"></div>
       { Object.keys(user).length != 0 &&
@@ -49,7 +38,7 @@ function Login() {
           <h3>{user.email}</h3>
         </div>
       }         
-    </div>
+    </div>    
   );
 }
 

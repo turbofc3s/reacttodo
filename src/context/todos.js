@@ -15,7 +15,6 @@ const [todos, setTodos] = useState([]);
    setTodos(response.data);
   };	
 
-
 const createTodo = async (event, email) => {
 
     const response = await axios.post('http://localhost:3001/todos', {
