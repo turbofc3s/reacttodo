@@ -1,11 +1,13 @@
-import {createContext, useState} from 'react';
+import {createContext, useState, useContext} from 'react';
 import axios from 'axios';
-
+import UserContext from './User-context'
 
 const TodosContext = createContext();
 
-
 function Provider({children}) {
+const  {user} = useContext(UserContext)  
+
+let email = user.email 
 
 const [todos, setTodos] = useState([]);
 
@@ -19,7 +21,7 @@ const createTodo = async (event, email) => {
 
     const response = await axios.post('http://localhost:3001/todos', {
         event,
-        email: "burkejeffrey81@gmail.com"
+        email
     });
       const updatedTodos = [
       ...todos, 
