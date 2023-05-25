@@ -1,37 +1,23 @@
-import { createContext, useState } from 'react';
+import { createContext, useState } from "react";
+import { googleLogout } from "@react-oauth/google";
 
 const UserContext = createContext();
 
-function Provider1({children}) {
+function UserProvider({ children }) {
+  const [user, setUser] = useState({});
 
-const [user, setUser] = useState({})
-  // console.log(user.email)
+  const handleSignOut = () => {
+    googleLogout();
+    setUser(null);
+    localStorage.setItem("USER", null);
+  };
 
-  function handleCallbackResponse(response) {
-    console.log('Encoded JWT ID token: ' + response.credential);
-    var userObject = jwt_decode(response.credential);
-    // console.log(userObject);
-    setUser(userObject);
-    document.getElementById('signInDiv').hidden = true;
-  }
+  return (
+    <UserContext.Provider value={{ user, setUser, handleSignOut }}>
+      {children}
+    </UserContext.Provider>
+  );
+}
 
-  function handleSignOut(event) {
-    setUser({});
-    document.getElementById('signInDiv').hidden = false;
-  }
-
-  const valueToShare ={
-  	user,
-  	handleCallbackResponse,
-  	handleSignOut
-  }
-
-	return (
-	  <UserContext.Provider1 value={{valueToShare}}
-	    {children}
-	  </UserContext.Provider1>  
-	)  
-};
-
-export {Provider1};
+export { UserProvider };
 export default UserContext;

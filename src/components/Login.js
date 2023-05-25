@@ -1,44 +1,62 @@
-import {useEffect, useState, useContext} from 'react';
-import jwt_decode from 'jwt-decode';
-import UserContext from ' ../context/User-context';
+import { useEffect, useState, useContext } from "react";
+import UserContext from "../context/User-context";
+import { useGoogleLogin } from "@react-oauth/google";
+import axios from "axios";
+
+const getUserFormLocalStorage = () => {
+  const data = localStorage.getItem("USER");
+
+  return JSON.parse(data);
+};
 
 function Login() {
-  const {handleCallbackResponse} = useContext(UserContext);
- 
-  const {handleSignOut} = useContext(UserContext);
+  const [profile, setProfile] = useState(null);
+
+  const { handleSignOut, user, setUser } = useContext(UserContext);
+
+  const login = useGoogleLogin({
+    onSuccess: (codeResponse) => setProfile(codeResponse),
+    onError: (error) => console.log("Login Failed:", error),
+  });
 
   useEffect(() => {
-    if(!google) return
-    /* global google */
-    google.accounts.id.initialize({
-      client_id: "89157473197-l17rek976eg035cem0eq66ko71662bp0.apps.googleusercontent.com",
-      callback: handleCallbackResponse
-    });
+    if (profile) {
+      axios
+        .get(
+          `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${profile.access_token}`,
+          {
+            headers: {
+              Authorization: `Bearer ${user?.access_token}`,
+              Accept: "application/json",
+            },
+          }
+        )
+        .then((res) => {
+          setUser(res.data);
 
-    google.accounts.id.renderButton(
-      document.getElementById('signInDiv'),
-      {theme: 'outline', size: 'large'}
-    );
-  }, []);
- 
-  //if we have no user: show sign in button
-  // if we have a user: show the log out button 
- 
+          localStorage.setItem("USER", JSON.stringify(res.data));
+        })
+        .catch((err) => console.log(err));
+    }
 
-  return (  
+    setUser(getUserFormLocalStorage());
+  }, [profile]);
+
+  return (
     <div className="App">
-      <div id="signInDiv"></div>
-      { Object.keys(user).length != 0 &&
-        <button onClick={ (e) => handleSignOut(e)}>Sign Out</button>
-      }
+      {user ? (
+        <button onClick={handleSignOut}>Sign Out</button>
+      ) : (
+        <button onClick={login}>Login With Google</button>
+      )}
 
-      {user &&
+      {user && (
         <div>
           <h3>{user.name}</h3>
           <h3>{user.email}</h3>
         </div>
-      }         
-    </div>    
+      )}
+    </div>
   );
 }
 
