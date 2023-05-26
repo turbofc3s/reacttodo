@@ -7,21 +7,19 @@ const TodosContext = createContext();
 function Provider({children}) {
 const  {user} = useContext(UserContext)  
 
-let email = user.email 
-
 const [todos, setTodos] = useState([]);
 
   const fetchTodos = async () => {
    const response = await axios.get("http://localhost:3001/todos");
 
    setTodos(response.data);
-  };	
+  };  
 
-const createTodo = async (event, email) => {
+const createTodo = async (event) => {
 
     const response = await axios.post('http://localhost:3001/todos', {
         event,
-        email
+        email: user.email
     });
       const updatedTodos = [
       ...todos, 
@@ -53,14 +51,14 @@ const createTodo = async (event, email) => {
          return todo.id !== id;
       })
     setTodos(newTodos)
-    }   	
+    }     
 
     const valueToShare ={
-    	fetchTodos,
-    	createTodo,
-    	editTodos,
-    	deleteTodos,
-    	todos
+      fetchTodos,
+      createTodo,
+      editTodos,
+      deleteTodos,
+      todos
     }
 
 console.log(valueToShare)
