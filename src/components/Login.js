@@ -1,9 +1,9 @@
 import {useEffect, useState, useContext} from 'react';
 import jwt_decode from 'jwt-decode';
-import UserContext from ' ../context/User-context';
+import UserContext from '../context/User-context';
 
 function Login() {
-  const {handleCallbackResponse} = useContext(UserContext);
+  const {handleCallbackResponse, user} = useContext(UserContext);
  
   const {handleSignOut} = useContext(UserContext);
 
