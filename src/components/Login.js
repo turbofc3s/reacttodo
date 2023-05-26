@@ -1,9 +1,8 @@
-import {useEffect, useState, useContext} from 'react';
-import jwt_decode from 'jwt-decode';
-import UserContext from ' ../context/User-context';
+import {useEffect, useContext} from 'react';
+import UserContext from '../context/User-context';
 
 function Login() {
-  const {handleCallbackResponse} = useContext(UserContext);
+  const {handleCallbackResponse, user} = useContext(UserContext);
  
   const {handleSignOut} = useContext(UserContext);
 
@@ -28,7 +27,7 @@ function Login() {
   return (  
     <div className="App">
       <div id="signInDiv"></div>
-      { Object.keys(user).length != 0 &&
+      { Object.keys(user).length !== 0 &&
         <button onClick={ (e) => handleSignOut(e)}>Sign Out</button>
       }
 

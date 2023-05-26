@@ -7,8 +7,6 @@ const TodosContext = createContext();
 function Provider({children}) {
 const  {user} = useContext(UserContext)  
 
-let email = user.email 
-
 const [todos, setTodos] = useState([]);
 
   const fetchTodos = async () => {
@@ -17,11 +15,11 @@ const [todos, setTodos] = useState([]);
    setTodos(response.data);
   };	
 
-const createTodo = async (event, email) => {
+const createTodo = async (event) => {
 
     const response = await axios.post('http://localhost:3001/todos', {
         event,
-        email
+        email: user.email
     });
       const updatedTodos = [
       ...todos, 
