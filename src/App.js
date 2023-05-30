@@ -6,7 +6,7 @@ import './App.css';
 import Login from './components/Login';
 
 function App() {  
-  const {fetchTodos} = useContext(TodosContext);
+  const {fetchTodos, user} = useContext(TodosContext);
 
   useEffect(() => {
     fetchTodos()
@@ -16,7 +16,9 @@ function App() {
     <div>
         <Login /> 
         <h1>My Todo List</h1>
-        <TodoCreate/>
+        {user ? 
+          <TodoCreate/> : null
+        }
         <br></br>
         <TodoList />
       </div>         

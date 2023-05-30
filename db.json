@@ -1,3 +1,19 @@
 {
-  "todos": []
+  "todos": [
+    {
+      "event": "work",
+      "email": "burkejeffrey81@gmail.com",
+      "id": 1
+    },
+    {
+      "event": "play",
+      "email": "burkejeffrey81@gmail.com",
+      "id": 2
+    },
+    {
+      "event": "fun",
+      "email": "burkejeffrey81@gmail.com",
+      "id": 3
+    }
+  ]
 }
