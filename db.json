@@ -5,7 +5,7 @@
       "id": 1
     },
     {
-      "event": "sleep",
+      "event": "go",
       "id": 2
     }
   ]
