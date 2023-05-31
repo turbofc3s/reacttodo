@@ -58,7 +58,8 @@ const createTodo = async (event) => {
     	createTodo,
     	editTodos,
     	deleteTodos,
-    	todos
+    	todos,
+      user
     }
 
 console.log(valueToShare)

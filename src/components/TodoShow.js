@@ -1,10 +1,14 @@
 import {useState, useContext} from 'react';
 import TodoEdit from './TodoEdit';
 import TodosContext from '../context/todos'
+import UserContext from '../context/User-context';
+
 
 function TodoShow({todo}) {
 	const [showEdit, setShowEdit] = useState(false);
-	const {deleteTodos} = useContext(TodosContext)
+	const {deleteTodos} = useContext(TodosContext);
+	const {user} = useContext(UserContext);
+
 
 	const handleDelete = () => {
 		deleteTodos(todo.id);
@@ -27,9 +31,12 @@ function TodoShow({todo}) {
 	return (
 	  <div className="list">
 	    <div>{content}</div>
-	    <button onClick={handleEdit}>Edit</button>
-	    <button onClick={handleDelete}> Delete</button>
-	    
+	    {!user ?
+	      <div>	
+	        <button onClick={handleEdit}>Edit</button>
+	        <button onClick={handleDelete}> Delete</button>
+	      </div> : null
+	    }    	    
 	  </div>
 	)  
 }
