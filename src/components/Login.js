@@ -27,17 +27,18 @@ function Login() {
   return (  
     <div className="App">
       <div id="signInDiv"></div>
-      { Object.keys(user).length !== 0 &&
+      { Object.keys(!user).length !== 0 &&
         <button onClick={ (e) => handleSignOut(e)}>Sign Out</button>
       }
+    </div>  
 
-      {user &&
-        <div>
-          <h3>{user.name}</h3>
-          <h3>{user.email}</h3>
-        </div>
-      }         
-    </div>    
+    //   {user &&
+    //     <div>
+    //       <h3>{user.name}</h3>
+    //       <h3>{user.email}</h3>
+    //     </div>
+    //   }         
+    // </div>    
   );
 }
 
