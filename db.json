@@ -5,8 +5,23 @@
       "id": 1
     },
     {
-      "event": "go",
+      "event": "work",
       "id": 2
+    },
+    {
+      "event": "play",
+      "email": "burkejeffrey81@gmail.com",
+      "id": 3
+    },
+    {
+      "event": "sleep",
+      "email": "burkejeffrey81@gmail.com",
+      "id": 4
+    },
+    {
+      "event": "sleep",
+      "email": "theburkes21812@gmail.com",
+      "id": 5
     }
   ]
 }

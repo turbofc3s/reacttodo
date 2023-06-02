@@ -27,16 +27,18 @@ function TodoShow({todo}) {
 	if(showEdit) {
 		content = <TodoEdit todo={todo} onSubmit={handleSubmit}/>
 	}
+	console.log(user.email)
+	console.log(todo.email)
 
 	return (
 	  <div className="list">
 	    <div>{content}</div>
-	    {!user.email ?
-	      null :	
+	    {user.email && user.email === todo.email?
 	      <div>	
 	        <button onClick={handleEdit}>Edit</button>
 	        <button onClick={handleDelete}> Delete</button>
-	      </div>
+	      </div>:
+	      null 	      
 	    }    	    
 	  </div>
 	)  
