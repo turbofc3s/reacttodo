@@ -33,7 +33,7 @@ function TodoShow({todo}) {
 	return (
 	  <div className="list">
 	    <div>{content}</div>
-	    {user.email && user.email === todo.email?
+	    {user.email && user.email === todo.email ?
 	      <div>	
 	        <button onClick={handleEdit}>Edit</button>
 	        <button onClick={handleDelete}> Delete</button>

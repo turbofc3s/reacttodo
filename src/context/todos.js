@@ -30,7 +30,8 @@ const createTodo = async (event) => {
 
   const editTodos = async (id, newTitle) => {
    const response = await axios.put(`http://localhost:3001/todos/${id}`, {
-     event: newTitle
+     event: newTitle,
+     email: user.email
    });
 
     const updatedTodos = todos.map((todo) => {
