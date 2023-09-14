@@ -19,7 +19,9 @@ Css
 ## Quick Start
 
 npx create-react-app todo-app
+
 cd todo-app
+
 npm start to start up the development server
 
 
