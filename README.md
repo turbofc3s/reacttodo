@@ -18,6 +18,8 @@ Css
 
 ## Quick Start
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+npx create-react-app todo-app
+cd todo-app
+npm start to start up the development server
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+
