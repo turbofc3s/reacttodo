@@ -14,7 +14,9 @@ When the page loads there is an input box.  You enter the todo that you want to 
 
 React, 
 Npm start, 
-Css
+Css,
+Axios, 
+CLI
 
 ## Quick Start
 
