@@ -20,7 +20,9 @@ CLI
 
 ## Quick Start
 
-npx create-react-app todo-app
+ access the repository. git clone
+ cd into reacttodo
+ 
 
 cd todo-app
 
