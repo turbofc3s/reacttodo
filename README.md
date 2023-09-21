@@ -12,11 +12,9 @@ When the page loads there is an input box.  You enter the todo that you want to 
 
 ### Technologies Used
 
-React, 
-Npm start, 
+React,  
 Css,
 Axios, 
-CLI
 
 ## Quick Start
 
@@ -28,4 +26,4 @@ CLI
 
 3. npm install
 
-
+4. npm start
