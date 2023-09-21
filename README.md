@@ -20,12 +20,12 @@ CLI
 
 ## Quick Start
 
- access the repository. git clone
- cd into reacttodo
+ to download the app 
  
+1. git clone
+ 
+2. cd into reacttodo 
 
-cd todo-app
-
-npm start to start up the development server
+3. npm install
 
 
